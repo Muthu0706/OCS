@@ -1,5 +1,4 @@
-FROM openjdk
-WORKDIR /app
-COPY . /app
-RUN javac sample.java
-CMD ["java", "sample"]
+FROM tomcat:9.0
+ADD **/*.war /usr/local/tomcat/webapps/
+EXPOSE 8088
+CMD ["catalina.sh", "run"]
